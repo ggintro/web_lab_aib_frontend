@@ -1,9 +1,4 @@
-html{
-  height: 100%;
+.selector {
+  color: write;
+  background-color: MediumSlateBlue;
 }
-body{
-  align-items: center;
-  background: linear-gradient(320deg, #ed92be, #ffef78, #63c9b4);
-  
-}
-
