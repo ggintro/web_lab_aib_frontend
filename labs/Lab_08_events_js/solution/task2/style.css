@@ -1,29 +1,37 @@
-.container {
-  padding: 50px;
-  margin-top: 10%;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  column-gap: 150px;
-  align-items: center;
+body {
+    padding: 0;
+    margin: 0;
 }
-.form_action {
-  font-size: 30px;
-  display: flex;
-  max-width: 200px;
-  flex-direction: column;
+
+.input-fields {
+    padding-top: 50px;
+    display:  flex;
+    justify-content: center;
 }
-.form_action input {
-  border-radius: 10px;
-  padding: 10px;
-  font-size: 20px;
+
+.input-fields div {
+    display:  flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 200px;
+    margin-right: 200px;
 }
-.background-color {
-  background-color: aqua;
-  width: 320px;
-  height: 320px;
+
+.input-fields label {
+    display:  flex;
+    flex-direction: column;
 }
-p {
-  font-size: 14px;
-  color: red;
+
+.input-fields input {
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 250px;
+    height: 30px;
+}
+
+.color-container {
+    height: 300px;
+    width: 300px;
+    margin-left: 30px;
+    border: 1.5px solid black;
 }

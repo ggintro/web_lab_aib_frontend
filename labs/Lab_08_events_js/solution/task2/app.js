@@ -1,22 +1,22 @@
-window.onload = function () {
-  inputValue();
-};
-function inputValue() {
-  let inputs = document.querySelectorAll(".inp");
-  for (let i = 0; i < inputs.length; i++) {
-    inputs[i].addEventListener("input", updateInput);
-  }
+red.oninput = green.oninput  = blue.oninput = fieldValidation;
+
+fieldValidation();
+
+function fieldValidation() {
+    let r = document.getElementById('red').value;
+    let g = document.getElementById('green').value;
+    let b = document.getElementById('blue').value;
+
+    r = (r >= 0 && r <= 255) && r !== "" ? r : 0;
+    g = (g >= 0 && g <= 255) && g !== "" ? g : 0;
+    b = (b >= 0 && b <= 255) && b !== "" ? b : 0;
+
+
+    swapColorContainer(r, g, b);
 }
-function updateInput(event) {
-  if (parseInt(event.target.value) >= 0 && parseInt(event.target.value) < 256) {
-    let red = document.querySelector("#inpRed");
-    let green = document.querySelector("#inpGreen");
-    let blue = document.querySelector("#inpBlue");
-    document.querySelector(
-      ".background-color"
-    ).style.background = `rgb( ${red.value},${green.value},${blue.value})`;
-  } else {
-    alert("Исправьте значение: " + event.target.value);
-    event.target.value = "";
-  }
+
+
+function swapColorContainer(r, g, b) {  
+    console.log(r, g, b);
+    document.getElementById('color-container').style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 }

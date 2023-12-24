@@ -1,63 +1,61 @@
-.container_top {
-  padding: 50px;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  column-gap: 150px;
-  align-items: center;
-}
-.form_action {
-  font-size: 30px;
-  display: flex;
-  max-width: 350px;
-  flex-direction: column;
-}
-.form_action input {
-  border-radius: 10px;
-  padding: 10px;
-  font-size: 20px;
-}
-.background-color {
-  background-color: aqua;
-  width: 320px;
-  height: 320px;
-  border: 1px solid black;
-}
-p {
-  font-size: 14px;
-  color: red;
+body {
+    padding: 0;
+    margin: 0;
 }
 
-/* Bottom */
-.container_bottom {
-  padding: 10px;
-  overflow: hidden;
-  margin: 0 auto;
-  max-width: 80%;
-  border: 1px solid black;
-  margin-bottom: 100px;
+.input-fields {
+    padding-top: 150px;
+    display:  flex;
+    justify-content: left;
 }
-.wrapper_bottom {
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  column-gap: 10px;
+
+.input-fields div {
+    display:  flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 100px;
+    margin-right: 100px;
 }
-.block {
-  margin-bottom: 10px;
-  background-color: aqua;
-  min-width: 100px;
-  height: 100px;
+
+.input-fields label {
+    margin-top: 20px;
+    display:  flex;
+    flex-direction: column;
+    margin-bottom: 5px;
 }
-.btn {
-  margin-top: 20px;
-  font-size: 15px !important;
-  max-width: 150px;
-  background-color: blue;
-  color: white;
-  transition: 0.3s;
+
+.input-fields input {
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    width: 250px;
+    height: 30px;
 }
-.btn:hover {
-  background-color: #1b4454;
-  color: white;
+
+.color-container {
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 300px;
+    width: 300px;
+    margin-left: 10px;
+    border: 1.5px solid black;
+}
+
+.generated {
+    width: 98%;
+    height: 320px;
+    border: 1.5px solid black;
+    margin: 0 auto;
+    margin-top: 35px;
+    display: flex;
+}
+
+.generate {
+    font-size: 15px;
+    border: 1px solid gray;
+    width: 125px;
+    height: 30px;
+    margin-top: 10px;
+    background-color: dodgerblue;
+    color: white;
+    border-radius: 5px;
 }
