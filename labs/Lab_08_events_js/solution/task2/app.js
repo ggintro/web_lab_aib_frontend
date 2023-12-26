@@ -1,22 +1,19 @@
-red.oninput = green.oninput  = blue.oninput = fieldValidation;
+function updateColor() {
+    var red = document.getElementById("red").value || 0;
+    var green = document.getElementById("green").value || 0;
+    var blue = document.getElementById("blue").value || 0;
 
-fieldValidation();
+    red = validateInput(red);
+    green = validateInput(green);
+    blue = validateInput(blue);
 
-function fieldValidation() {
-    let r = document.getElementById('red').value;
-    let g = document.getElementById('green').value;
-    let b = document.getElementById('blue').value;
-
-    r = (r >= 0 && r <= 255) && r !== "" ? r : 0;
-    g = (g >= 0 && g <= 255) && g !== "" ? g : 0;
-    b = (b >= 0 && b <= 255) && b !== "" ? b : 0;
-
-
-    swapColorContainer(r, g, b);
+    var colorDisplay = document.getElementById("color-display");
+    colorDisplay.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
 }
 
-
-function swapColorContainer(r, g, b) {  
-    console.log(r, g, b);
-    document.getElementById('color-container').style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+function validateInput(value) {
+    if (isNaN(value)) {
+        return 0;
+    }
+    return Math.max(0, Math.min(value, 255));
 }

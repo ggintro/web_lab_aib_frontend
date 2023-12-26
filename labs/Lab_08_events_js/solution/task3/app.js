@@ -1,38 +1,42 @@
-red.oninput = green.oninput = blue.oninput = fieldValidation;
-generated = document.getElementById('generated')
+function updateColor() {
+    var red = document.getElementById("red").value || 0;
+    var green = document.getElementById("green").value || 0;
+    var blue = document.getElementById("blue").value || 0;
 
-fieldValidation()
+    red = validateInput(red);
+    green = validateInput(green);
+    blue = validateInput(blue);
 
-function fieldValidation(gen) {
-    let r = document.getElementById('red').value || 0;
-    let g = document.getElementById('green').value || 0;
-    let b = document.getElementById('blue').value || 0;
-
-    r = (r >= 0 && r <= 255) && r !== "" ? r : 0;
-    g = (g >= 0 && g <= 255) && g !== "" ? g : 0;
-    b = (b >= 0 && b <= 255) && b !== "" ? b : 0;
-
-    const rgb = `rgb(${r}, ${g}, ${b})`;
-
-    gen != 'gen' ? swapColorContainer(rgb) : addColorBox(rgb);
-
+    var colorDisplay = document.getElementById("color-display");
+    colorDisplay.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
 }
 
-
-function swapColorContainer(rgb) { 
-    document.getElementById('color-container').style.backgroundColor = rgb;
-}
-
-function addColorBox(rgb) {
-    const colorBox = document.createElement('div');
-    colorBox.style.backgroundColor = rgb;
-    colorBox.className = 'color-container';
-
-    colorBox.onclick = function() {
-        document.body.style.backgroundColor = colorBox.style.backgroundColor;
+function validateInput(value) {
+    if (isNaN(value)) {
+        return 0;
     }
-    overflow = document.getElementById('generated').childElementCount
-    overflow < 6 ? generated.appendChild(colorBox) : 0;
+    return Math.max(0, Math.min(value, 255));
 }
 
+function generateBlock() {
+    var colorDisplay = document.getElementById("color-display");
+    var color = window.getComputedStyle(colorDisplay).backgroundColor;
 
+    if (!color || color === "rgba(0, 0, 0, 0)") {
+        alert("Введите значения цветов и нажмите 'Сгенерировать' перед добавлением блока.");
+        return;
+    }
+
+    var colorBlocksContainer = document.getElementById("color-blocks-container");
+
+    var colorBlock = document.createElement("div");
+    colorBlock.classList.add("color-block");
+    colorBlock.style.backgroundColor = color;
+
+    colorBlocksContainer.prepend(colorBlock);
+
+    var colorBlocks = document.getElementsByClassName("color-block");
+    if (colorBlocks.length > 15) {
+        colorBlocksContainer.removeChild(colorBlocks[colorBlocks.length - 1]);
+    }
+}

@@ -23,12 +23,18 @@
     </div>
 
     <div class="color-display-column">
-        <label for="highlighted">Палитра цвета:</label>
+        <label for="highlighted">Highlighted:</label>
         <span id="color-display"></span>
     </div>
 </div>
 
-<div class="color-blocks-container" id="color-blocks-container"></div>
+<div class="color-blocks-container" id="color-blocks-container">
+</div>
+
+<div class="scroll-arrows">
+    <div class="scroll-arrow" id="scroll-left" onclick="scrollColors(-1)">&#9665;</div>
+    <div class="scroll-arrow" id="scroll-right" onclick="scrollColors(1)">&#9655;</div>
+</div>
 
 <script src="app.js"></script>
 </body>

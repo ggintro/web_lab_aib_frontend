@@ -23,7 +23,7 @@ function generateBlock() {
     var color = window.getComputedStyle(colorDisplay).backgroundColor;
 
     if (!color || color === "rgba(0, 0, 0, 0)") {
-        alert("Введите значения цветов и нажмите 'Сгенерировать'.");
+        alert("Введите значения цветов и нажмите 'Сгенерировать' перед добавлением блока.");
         return;
     }
 
@@ -40,11 +40,24 @@ function generateBlock() {
 
 function saveColorToLocal(color) {
     var savedColors = JSON.parse(localStorage.getItem("savedColors")) || [];
-    savedColors.unshift(color); 
+    savedColors.unshift(color);
     if (savedColors.length > 15) {
-        savedColors.pop(); 
+        savedColors.pop();
     }
     localStorage.setItem("savedColors", JSON.stringify(savedColors));
+
+    var scrollLeft = document.getElementById("scroll-left");
+    var scrollRight = document.getElementById("scroll-right");
+    if (savedColors.length <= 0) {
+        scrollLeft.style.display = "none";
+        scrollRight.style.display = "none";
+    } else {
+        scrollLeft.style.display = "block";
+        scrollRight.style.display = "block";
+    }
+
+    var container = document.getElementById("color-blocks-container");
+    container.scrollLeft = 0;
 }
 
 function applySavedColors() {
@@ -62,6 +75,12 @@ function applySavedColors() {
 
         colorBlocksContainer.appendChild(colorBlock);
     });
+}
+
+function scrollColors(direction) {
+    var container = document.getElementById("color-blocks-container");
+    var scrollAmount = direction * 50;
+    container.scrollLeft += scrollAmount;
 }
 
 function changeBodyBackgroundColor(color) {
